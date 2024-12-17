@@ -1,6 +1,16 @@
 version: '3.8'
 
 services:
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mymongodata:/data/db
+    env_file: ./.env
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=$DB_USER
+      - MONGO_INITDB_ROOT_PASSWORD=$DB_PASSWORD
   trees-api:
     container_name: trees-api
     restart: unless-stopped
@@ -12,5 +22,9 @@ services:
       - /usr/src/app/node_modules
     ports:
       - 3000:3000
+    depends_on:
+      - mongo
     env_file:
       - .env
+volumes:
+  mymongodata:
