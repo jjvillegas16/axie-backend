@@ -37,13 +37,15 @@ Before you begin, ensure you have met the following requirements:
 
 To install the project, follow these steps:
 
-1. Download the .zip file of the project
-2. Install the dependencies so VSCode types will work
+1. Clone the project that is in github
 
 ```bash
-cd <repository-directory>
+git clone <url>
+cd axie-backend
 npm install
 ```
+
+2. Install the dependencies so VSCode types will work
 
 ## Development Setup
 
