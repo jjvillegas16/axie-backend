@@ -6,7 +6,7 @@ import { RegisterService } from './services/register.service';
 export class UsersController {
   constructor(private readonly registerService: RegisterService) {}
 
-  // TODO: Create @AuthenticatedUser
+  // TODO: Create @AuthenticatedUser()
   @Post('/register')
   async register(@Body() registerDto: RegisterDto) {
     return await this.registerService.run(registerDto);
