@@ -70,6 +70,7 @@ export class ImportAxiesService {
         }),
       ),
     );
+    Logger.debug(`GetAxieBriefListResponse: `, response);
 
     const axiesResponse = response.data.axies.results;
     const axies = this.transformResponseToAxieClass(axiesResponse);
