@@ -14,6 +14,7 @@ import { MechClass, MechSchema } from './schemas/mech-class.schema';
 import { DawnClass, DawnSchema } from './schemas/dawn-class.schema';
 import { DuskClass, DuskSchema } from './schemas/dusk-class.schema';
 import { GetAxiesService } from './services/get-axies.service';
+import { GetAxieService } from './services/get-axie.service';
 
 @Module({
   imports: [
@@ -40,6 +41,6 @@ import { GetAxiesService } from './services/get-axies.service';
     ]),
   ],
   controllers: [AxiesController],
-  providers: [ImportAxiesService, GetAxiesService],
+  providers: [ImportAxiesService, GetAxiesService, GetAxieService],
 })
 export class AxiesModule {}

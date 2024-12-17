@@ -58,7 +58,6 @@ export class ImportAxiesService {
   ) {}
 
   public async run(dto: GetAxiesListDto) {
-    // TODO: find a way to make this extendable ie strategy pattern
     const body = getAxieBriefList(dto);
 
     // get the axies from the axie infinity graphql api endpoint
