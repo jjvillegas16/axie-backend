@@ -52,13 +52,15 @@ export class GetAxiesService {
   public async run() {
     const result = {} as GetAxiesServiceResponse;
 
-    for (const model of this.models) {
-      const axies = await model.find().sort({ currentPriceUsd: 'asc' });
-      if (axies.length > 0) {
-        const axieClass = axies[0].axieClass;
-        result[axieClass] = axies;
-      }
-    }
+    await Promise.all(
+      this.models.map(async (model) => {
+        const axies = await model.find().sort({ currentPriceUsd: 'asc' });
+        if (axies.length > 0) {
+          const axieClass = axies[0].axieClass;
+          result[axieClass] = axies;
+        }
+      }),
+    );
 
     return result;
   }
